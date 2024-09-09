@@ -1,0 +1,7 @@
+.Logo{
+    height: var(--horizontal-rule);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

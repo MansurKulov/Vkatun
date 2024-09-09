@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from "next"
+import s from "./style.module.css"
+import "./global.css"
 
-const inter = Inter({ subsets: ["latin"] });
+import { Sidebar, Nav } from "@/components";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,9 +14,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <div className={s.wrapper}>
+          <Sidebar props={[
+            { name: "Профиль", link: 'hello' },
+            { name: 'ligma', link: 'balls' }
+          ]} />
+          <main className={s.main}>
+            <Nav props={[
+              { name: "Профиль", link: 'hello' },
+              { name: 'ligma', link: 'balls' }
+            ]} />
+            <section className={s.contentContainer}>
+              {children}
+            </section>
+          </main>
+        </div>
+      </body>
     </html>
   );
 }
